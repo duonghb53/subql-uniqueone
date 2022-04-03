@@ -1,0 +1,31 @@
+specVersion: 0.2.0
+name: subql-debionetwork
+version: 0.0.4
+description: This project can be use as a starting po...
+repository: 
+schema:
+  file: ./schema.graphql
+network:
+  endpoint: wss://gateway.testnet.octopus.network/uniqueone/e83rnqoi4hr65cwx46a83u6a7a970dgq
+  genesisHash: "0x10bfb9af1771fb58841d86209cc7e2055179d34b1aecddce4d45f5f793c02d83"
+  #dictionary: "https://api.subquery.network/sq/octopus-appchains/testnet-subql-uniqueone__b2N0b"
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler
+        - handler: systemTokenTransferEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Transfer
