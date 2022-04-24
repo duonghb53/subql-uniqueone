@@ -6,8 +6,8 @@ repository:
 schema:
   file: ./schema.graphql
 network:
-  endpoint: wss://gateway.testnet.octopus.network/uniqueone/e83rnqoi4hr65cwx46a83u6a7a970dgq
-  genesisHash: "0x10bfb9af1771fb58841d86209cc7e2055179d34b1aecddce4d45f5f793c02d83"
+  endpoint: wss://testnode3.unique.one/wsapi
+  genesisHash: "0xdca24dd820caa3b3dceebd8eda33cadb85a73cf88dacc1529fdd1422cc265a56"
   #dictionary: "https://api.subquery.network/sq/octopus-appchains/testnet-subql-uniqueone__b2N0b"
 dataSources:
   - kind: substrate/Runtime
