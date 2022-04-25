@@ -20,8 +20,6 @@ dataSources:
         - handler: handleEvent
           kind: substrate/EventHandler
           filter:
-            module: balances
-            method: Deposit
         - handler: handleCall
           kind: substrate/CallHandler
         - handler: systemTokenTransferEvent
